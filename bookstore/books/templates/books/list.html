@@ -8,10 +8,10 @@
   {% for book in books %}
     <div>
       <h3><a href="{% url 'book_detail' book.pk %}">{{ book.title }}</a></h3>
-      <p>by {{ book.author }} — ${{ book.price }}</p>
+      <p>⭐ {{ book.rate }} &nbsp;|&nbsp; 👁️ {{ book.views }} views</p>
     </div>
   {% empty %}
-    <p>No books yet. Add one!</p>
+    <p>No books yet.</p>
   {% endfor %}
 </body>
 </html>

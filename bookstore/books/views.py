@@ -8,6 +8,9 @@ def book_list(request):
 
 def book_detail(request, pk):
     book = get_object_or_404(Book, pk=pk)
+    # Auto-increment view count every time this page is visited
+    book.views += 1
+    book.save()
     return render(request, 'books/detail.html', {'book': book})
 
 def book_create(request):
