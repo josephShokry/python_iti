@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head><title>Bookstore</title></head>
+<body>
+  <h1>📚 All Books</h1>
+  <a href="{% url 'book_create' %}">+ Add New Book</a>
+  <hr>
+  {% for book in books %}
+    <div>
+      <h3><a href="{% url 'book_detail' book.pk %}">{{ book.title }}</a></h3>
+      <p>by {{ book.author }} — ${{ book.price }}</p>
+    </div>
+  {% empty %}
+    <p>No books yet. Add one!</p>
+  {% endfor %}
+</body>
+</html>
